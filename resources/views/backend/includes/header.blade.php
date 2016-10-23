@@ -1,0 +1,136 @@
+<header class="main-header">
+    {{ link_to_route('frontend.index', app_name(), [], ['class' => 'logo']) }}
+    <nav class="navbar navbar-static-top" role="navigation">
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">{{ trans('labels.general.toggle_navigation') }}</span>
+        </a>
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+
+            
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" id="navbar-search-input-artikel" placeholder="Artikel suchen">
+            </div>
+          </form>
+
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" id="navbar-search-input-kunde" placeholder="Kunden suchen">
+            </div>
+          </form>
+
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" id="navbar-search-input-order" placeholder="Bestellung suchen">
+            </div>
+          </form>
+
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+
+                <li class="">{{ link_to_route('frontend.index', trans('navs.general.home'), [], 
+                ['class' => '', 'target' => '_blank']) }}</li>
+                <li>{{ link_to_route('auth.logout', trans('navs.general.logout'), [], ['class' => '']) }}</li>
+                <li><a href="#">Link</a></li>
+
+                @if (config('locale.status') && count(config('locale.languages')) > 1)
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ trans('menus.language-picker.language') }} <span class="caret"></span></a>
+                    @include('includes.partials.lang')
+                </li>
+                @endif
+
+@if (1==2)
+                <li class="dropdown messages-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="label label-default">0</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">{{ trans_choice('strings.backend.general.you_have.messages', 0, ['number' => 0]) }}</li>
+                        <li class="footer">
+                            {{ link_to('#', trans('strings.backend.general.see_all.messages')) }}
+                        </li>
+                    </ul>
+                    </li><!-- /.messages-menu -->
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label label-default">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">{{ trans_choice('strings.backend.general.you_have.notifications', 0) }}</li>
+                            <li class="footer">
+                                {{ link_to('#', trans('strings.backend.general.see_all.notifications')) }}
+                            </li>
+                        </ul>
+                        </li><!-- /.notifications-menu -->
+                        <li class="dropdown tasks-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-flag-o"></i>
+                                <span class="label label-default">0</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">{{ trans_choice('strings.backend.general.you_have.tasks', 0, ['number' => 0]) }}</li>
+                                <li class="footer">
+                                    {{ link_to('#', trans('strings.backend.general.see_all.tasks')) }}
+                                </li>
+                            </ul>
+                            </li><!-- /.tasks-menu -->
+@endif
+@if (1==2)
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="{{ access()->user()->picture }}" class="user-image" alt="User Avatar"/>
+                                    <span class="hidden-xs">{{ access()->user()->name }}</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="user-header">
+                                        <img src="{{ access()->user()->picture }}" class="img-circle" alt="User Avatar" />
+                                        <p>
+                                            {{ access()->user()->name }} - {{ implode(", ", access()->user()->roles->lists('name')->toArray()) }}
+                                            <small>{{ trans('strings.backend.general.member_since') }} {{ access()->user()->created_at->format("m/d/Y") }}</small>
+                                        </p>
+                                    </li>
+                                    <li class="user-body">
+                                        <div class="col-xs-4 text-center">
+                                            {{ link_to('#', 'Link') }}
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            {{ link_to('#', 'Link') }}
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            {{ link_to('#', 'Link') }}
+                                        </div>
+                                    </li>
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            {{ link_to_route('frontend.index', trans('navs.general.home'), [], ['class' => 'btn btn-default btn-flat']) }}
+                                        </div>
+                                        <div class="pull-right">
+                                            {{ link_to_route('auth.logout', trans('navs.general.logout'), [], ['class' => 'btn btn-default btn-flat']) }}
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+@endif                            
+                            <!-- Control Sidebar Toggle Button -->
+                            <li>
+                                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                            </li>
+                        </ul>
+                        </div><!-- /.navbar-custom-menu -->
+                    </nav>
+                </header>

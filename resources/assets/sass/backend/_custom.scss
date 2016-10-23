@@ -1,0 +1,53 @@
+.logged-in-as {
+  margin:0;
+  border-radius:0;
+}
+
+// Margin/Padding Helpers
+$margin-padding: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50;
+@each $mp in $margin-padding {
+  .mt-#{$mp} {
+    margin-top:#{$mp}px !important;
+  }
+  .mb-#{$mp} {
+    margin-bottom:#{$mp}px !important;
+  }
+  .ml-#{$mp} {
+    margin-left:#{$mp}px !important;
+  }
+  .mr-#{$mp} {
+    margin-right:#{$mp}px !important;
+  }
+
+  .pt-#{$mp} {
+    padding-top:#{$mp}px !important;
+  }
+  .pb-#{$mp} {
+    padding-bottom:#{$mp}px !important;
+  }
+  .pl-#{$mp} {
+    padding-left:#{$mp}px !important;
+  }
+  .pr-#{$mp} {
+    padding-right:#{$mp}px !important;
+  }
+}
+
+
+
+.navbar-nav .dropdown-menu {
+  /* box-shadow: none !important;  */
+  box-shadow: 10px 10px 15px -8px rgba(107,107,107,0.63) !important;  
+  border:1px #7faec4 solid !important;
+  background-color:#fcfcfc !important;
+}
+
+.dropdown-menu {
+  box-shadow: 10px 10px 15px -8px rgba(107,107,107,0.63) !important;  
+  border:1px #7faec4 solid !important;
+  background-color:#fcfcfc !important;
+}
+
+/* #users-table_length select option{ 
+  box-shadow: 10px 10px 15px -8px rgba(107,107,107,0.63) !important;
+} */
